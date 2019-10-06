@@ -1,2 +1,2 @@
-# adventure-travel-optimization
+# RoadScanner
 This is our MIDS 2019 Fall Capstone project repo
