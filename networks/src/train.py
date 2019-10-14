@@ -80,6 +80,7 @@ def create_data_generator(dataset,
                                                             x_col='path',
                                                             y_col='label',
                                                             class_mode='categorical',
+                                                            #class_mode='binary',
                                                             classes=labels,
                                                             target_size=target_size,
                                                             color_mode=color_mode,
@@ -344,10 +345,10 @@ def train_multiple_networks():
                     train, valid, labels,
                     create_simple_model, optimizer, 'simple')
 
-    for [_Model, input_shape, preprocess_input] in base_models:
-        train_model(_Model, input_shape, preprocess_input,
-                    train, valid, labels,
-                    create_attention_model, optimizer, 'attention')
+    # for [_Model, input_shape, preprocess_input] in base_models:
+    #     train_model(_Model, input_shape, preprocess_input,
+    #                 train, valid, labels,
+    #                 create_attention_model, optimizer, 'attention')
 
 if __name__ == '__main__':
     reset.reset_keras()
