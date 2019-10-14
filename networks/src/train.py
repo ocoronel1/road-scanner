@@ -62,9 +62,6 @@ def create_data_generator(dataset,
       The created ImageDataGenerator.
     '''
 
-    dataset['newLabel'] = dataset.apply(
-        lambda x: x['Finding Labels'].split('|'), axis=1)
-
     image_generator = ImageDataGenerator(samplewise_center=True,
                                          samplewise_std_normalization=False,
                                          horizontal_flip=True,
@@ -81,7 +78,7 @@ def create_data_generator(dataset,
     dataset_generator = image_generator.flow_from_dataframe(dataframe=dataset,
                                                             directory=None,
                                                             x_col='path',
-                                                            y_col='newLabel',
+                                                            y_col='label',
                                                             class_mode='categorical',
                                                             classes=labels,
                                                             target_size=target_size,

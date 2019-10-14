@@ -1,7 +1,9 @@
-DATA_FOLDER = '/src/data'
-RESULTS_FOLDER = '/src/results'
+DATA_FOLDER = 'networks/.data'
+NON_SCENIC_FOLDER = 'non-scenic'
+SCENIC_FOLDER = 'scenic'
+RESULTS_FOLDER = 'networks/.results'
 TENSORBOARD_BASE_FOLDER = 'tensorboard'
-INDICES_FILE = 'Data_Entry_2017.csv'
+INDICES_FILE = 'indices.csv'
 
 WEIGHT_FILE_NAME = "{val_loss:.2f}_weights.best.hdf5"
 

@@ -1,0 +1,40 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${fileDirname}"
+        },
+        {
+            "name": "Python: Networks Data Prep",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/networks/src/data_preparation.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "LC_ALL": "C.UTF-8",
+                "LANG": "C.UTF-8"
+            }
+        },
+        {
+            "name": "Python: Train",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/networks/src/train.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "LC_ALL": "C.UTF-8",
+                "LANG": "C.UTF-8"
+            }
+        }
+    ]
+}

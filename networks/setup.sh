@@ -9,5 +9,17 @@ apt-get update
 apt install python3-pip -y
 apt install unzip -y
 
-docker build -t road_scanner -f Dockerfile.dev .
+apt-get install -y awscli
+aws configure set aws_access_key_id $1
+aws configure set aws_secret_access_key $2
+
+aws s3 cp s3://w210-data/images/non-scenic.zip ./
+unzip ./non-scenic.zip -d ./.data/non-scenic
+rm ./non-scenic.zip
+
+aws s3 cp s3://w210-data/images/scenic.zip ./
+unzip ./scenic.zip -d ./.data/scenic
+rm ./scenic.zip
+
+docker build -t road_scanner_dev -f Dockerfile.dev .
 
