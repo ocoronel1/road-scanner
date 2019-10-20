@@ -15,6 +15,7 @@ import json
 import os
 import pandas as pd
 import numpy as np
+from os import path
 
 with open('coordinates.txt','r') as f:
     content1=f.readlines()
@@ -62,8 +63,9 @@ def create_image(x):
         query='https://maps.googleapis.com/maps/api/streetview?size=400x400&location=%s,%s&fov=90&heading=%s&pitch=10&key=AIzaSyD5auFkLCc2ywVruc-U5OtwfY5n-fkAe64' % (str(lat),str(long),heading)
         page=requests.get(query)
         filename='%s-%s-%s-%s.jpg' %(str(x[0]),str(lat),str(long),location.replace('/','-'))
-        f = open(filename,'wb')
-        f.write(page.content)    
-        f.close()
+        if not path.exists(filename+".txt") or os.path.getsize(filename)<5*10^3:
+            f = open(filename,'wb')
+            f.write(page.content)    
+            f.close()
 
 f1.map(create_image).collect()
