@@ -26,6 +26,8 @@ content1[0]=eval(content1[0])
 
 content=content1[0]
 
+apikey=''
+
 for item in content:
     if item==list(content.keys())[0]:
         file=pd.concat((pd.DataFrame(data=np.asarray([item]*len(content[item]))),pd.DataFrame(np.asarray(content[item]))),axis=1)
@@ -60,7 +62,7 @@ def create_image(x):
         long=x[2]
         location=x[3]
         heading=str(90*heading)
-        query='https://maps.googleapis.com/maps/api/streetview?size=400x400&location=%s,%s&fov=90&heading=%s&pitch=10&key=AIzaSyD5auFkLCc2ywVruc-U5OtwfY5n-fkAe64' % (str(lat),str(long),heading)
+        query='https://maps.googleapis.com/maps/api/streetview?size=400x400&location=%s,%s&fov=90&heading=%s&pitch=10&key=%s' % (str(lat),str(long),heading,apikey)
         page=requests.get(query)
         filename='%s-%s-%s-%s.jpg' %(str(x[0]),str(lat),str(long),location.replace('/','-'))
         if not path.exists(filename+".txt") or os.path.getsize(filename)<5*10^3:
