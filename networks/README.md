@@ -1,6 +1,6 @@
 # RoadScanner
 This UC Berkeley Master of Information in Data Science capstone project was developed by
-[Spyros Garyfallos](mailto:spiros.garifallos@berkeley.edu), [Sergio Ferro](mailto:sm.ferro54@ischool.berkeley.edu), [Kaitlin Swinnerton](mailto:kswinnerton@ischool.berkeley.edu)
+[Spyros Garyfallos](mailto:spiros.garifallos@berkeley.edu), [Sergio Ferro](mailto:sm.ferro54@ischool.berkeley.edu), [Kaitlin Swinnerton](mailto:kswinnerton@ischool.berkeley.edu) and [Arjun Chakraborty](archakra@ischool.berkeley.edu)
 
 ## 1. Provision a cloud GPU machine
 

@@ -340,15 +340,15 @@ def train_multiple_networks():
         [NASNetLarge, params.NASNETLARGE_IMG_SIZE, NASNetLarge_preprocess_input],
     ]
 
-    for [_Model, input_shape, preprocess_input] in base_models:
-        train_model(_Model, input_shape, preprocess_input,
-                    train, valid, labels,
-                    create_simple_model, optimizer, 'simple')
-
     # for [_Model, input_shape, preprocess_input] in base_models:
     #     train_model(_Model, input_shape, preprocess_input,
     #                 train, valid, labels,
-    #                 create_attention_model, optimizer, 'attention')
+    #                 create_simple_model, optimizer, 'simple')
+
+    for [_Model, input_shape, preprocess_input] in base_models:
+        train_model(_Model, input_shape, preprocess_input,
+                    train, valid, labels,
+                    create_attention_model, optimizer, 'attention')
 
 if __name__ == '__main__':
     reset.reset_keras()
