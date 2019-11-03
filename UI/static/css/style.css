@@ -1,0 +1,48 @@
+body {
+	background: hsl(260, 20%, 20%);
+	color: hsl(260, 20%, 20%);
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 300;
+	letter-spacing: .03rem;
+	line-height: 1;
+	margin: 1rem;	
+}
+
+.grid {	
+	height:100%;
+	width: 100%;
+	display: grid;
+	grid-gap: 0.2rem;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: 2fr 7fr;
+}
+
+#logo {
+	display: flex;
+	flex-wrap: wrap;
+	grid-row: 1;
+	grid-column: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+#logo>img {
+	object-fit: contain;
+}
+
+#address_box {
+	display: flex;
+	flex: 0 0 auto; /* not growable (0), not shrinkable (0), with initial 'auto' length */
+	flex-wrap: wrap;
+	grid-row: 1;
+	grid-column: 2;
+	justify-content: center;
+	align-items: center;
+}
+
+#map {
+	height: 100%;
+	grid-row: 2;
+	grid-column: 1 / 3;
+	
+}

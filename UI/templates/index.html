@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Roadscanner</title>
+    <!-- css -->
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css">
+	<script type='text/javascript' src='./static/js/config.js'></script>
+    <link rel="shortcut icon" href="./static/images/roadscanner.ico">
+	<script onload="initMap()" async defer id = js_api></script>
+	<script>
+		var k = config.big_key;
+		url0 = 'https://maps.googleapis.com/maps/api/js?key=' + k + '&libraries=geometry'
+		document.getElementById("js_api").src= url0;
+	</script>
+	<script type='text/javascript' src='./static/js/jquery-3.4.1.min.js'></script>
+</head>
+
+<body>
+
+    <div class="grid">
+
+        <div id="logo">
+			<img src="./static/images/roadscanner.png">
+		</div>
+
+        <div id="address_box">
+            <input id="start-input" class="address_input form-control" placeholder="Starting from..." autocomplete=on>
+            <input id="end-input" class="address_input form-control" placeholder="Going to..." autocomplete=on>
+            
+			<div id="buttons_box">
+                <button class="btn-address btn btn-primary" type="button" id="btn_go" onclick="get_route()">Go!</button>
+            </div>
+        </div>
+		
+        <div id="map">
+        </div>
+		
+        <script type="text/javascript" src="./static/js/map.js"></script>
+		
+    </div>
+
+</body>
+
+</html>
