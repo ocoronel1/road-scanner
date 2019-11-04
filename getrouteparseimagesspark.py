@@ -28,7 +28,7 @@ apikey=''
 waypoints=['']
 def make_lat_long_file(origin,destination,waypoints):
     
-    bk = big_key
+    bk = apikey
     BASE_URL_DIRECTIONS = 'https://maps.googleapis.com/maps/api/directions/json?'
     origin = 'origin=%s' %(('+').join(origin.split(' ')))
     destination = 'destination=%s' %(('+').join(destination.split(' ')))
@@ -151,20 +151,23 @@ f1=f.map(mapf).filter(lambda x: x[0]!='')
 
 os.chdir('picturess360')
 
+org_dest_string='%s-%s' %(origin,destination)
 
-def create_image(x):
-
-    for heading in range(0,4):
-        lat=x[1]
-        long=x[2]
-        location=x[3]
-        heading=str(90*heading)
-        query='https://maps.googleapis.com/maps/api/streetview?size=400x400&location=%s,%s&fov=90&heading=%s&pitch=10&key=%s' % (str(lat),str(long),heading,apikey)
-        page=requests.get(query)
-        filename='%s-%s-%s-%s.jpg' %(str(x[0]),str(lat),str(long),location.replace('/','-'))
-        if not path.exists(filename+".txt") or os.path.getsize(filename)<5*10^3:
-            f = open(filename,'wb')
-            f.write(page.content)    
-            f.close()
-
-f1.map(create_image).collect()
+if org_dest_string not in os.listdir(os.getcwd())[0]:
+    
+    def create_image(x):
+        
+        for heading in range(0,4):
+            lat=x[1]
+            long=x[2]
+            location=x[3]
+            heading=str(90*heading)
+            query='https://maps.googleapis.com/maps/api/streetview?size=400x400&location=%s,%s&fov=90&heading=%s&pitch=10&key=%s' % (str(lat),str(long),heading,apikey)
+            page=requests.get(query)
+            filename='%s-%s-%s-%s-%s-%s.jpg' %(origin,destination,str(x[0]),str(lat),str(long),location.replace('/','-'))
+            if not path.exists(filename+".txt") or os.path.getsize(filename)<5*10^3:
+                f = open(filename,'wb')
+                f.write(page.content)    
+                f.close()
+    
+    f1.map(create_image).collect()
