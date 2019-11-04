@@ -154,7 +154,7 @@ os.chdir('picturess360')
 org_dest_string='%s-%s' %(origin,destination)
 
 if org_dest_string not in os.listdir(os.getcwd())[0]:
-    
+    os.system('rm ./*')
     def create_image(x):
         
         for heading in range(0,4):
