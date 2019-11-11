@@ -1,0 +1,19 @@
+FROM tensorflow/tensorflow:nightly-gpu-py3-jupyter
+
+RUN apt-get update && apt-get install -y openssh-server && apt-get install -y git
+
+RUN pip3 install tensorflow_datasets
+
+RUN systemctl enable ssh
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+COPY ./keys/spyros_id_rsa.pub /tmp/tmp.pub
+RUN mkdir -p ~/.ssh && chmod 700 ~/.ssh && cat /tmp/tmp.pub >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys && rm -f /tmp/tmp.pub
+
+#Expose ports for jupyter lab and mlflow tracking
+EXPOSE 8888
+EXPOSE 4040
+EXPOSE 6006
+EXPOSE 22
+
+ENTRYPOINT service ssh restart && bash

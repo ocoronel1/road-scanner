@@ -108,6 +108,7 @@ To build the image in the cloud:
 
 ```
 docker build -t road_scanner_dev -f Dockerfile.dev .
+docker build -t road_scanner_tf2_dev -f Dockerfile.tf2.dev .
 ```
 
 ## 4. Launch an `road_scanner_dev` Docker container
@@ -128,7 +129,25 @@ docker run \
     road_scanner_dev
 ```
 
-You will see it listed as `road_scanner_dev ` when you run `docker ps -a`.  
+Run the `road_scanner_tf2_dev` Docker container with the following args.  
+
+```
+docker run \
+    --rm \
+    --runtime=nvidia \
+    --name road_scanner_tf2_dev \
+    -ti \
+    -e JUPYTER_ENABLE_LAB=yes \
+    -v /data:/data \
+    -p 8888:8888 \
+    -p 4040:4040 \
+    -p 32003:22 \
+    road_scanner_tf2_dev
+```
+To start the jupyter server, run:
+`bash -c 'source /etc/bash.bashrc && jupyter notebook --notebook-dir=/data --ip 0.0.0.0 --no-browser --allow-root'`
+
+You will see them listed as `road_scanner_dev ` and `road_scanner_ft2d_ev ` when you run `docker ps -a`.  
 
 ### Verify Keras can see the GPU
 
