@@ -98,7 +98,7 @@ def make_lat_long_file(origin,destination,waypoints):
     
     while k <= len(unique_points_interpol)-1:
         coords_list += [unique_points_interpol[k]]
-        if (len(coords_list)%100==0) or (k==len(unique_points_interpol)): #When we have 100 points or we reach the end of the list.
+        if (len(coords_list)%100==0) or (k+1==len(unique_points_interpol)): #When we have 100 points or we reach the end of the list.
             path = create_path(coords_list)
             url = BASE_URL_SNAP + path + interpolate + key
             r = requests.get(url)
