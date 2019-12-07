@@ -331,13 +331,13 @@ def train_multiple_networks():
             lr=params.LEARNING_RATE, accum_iters=params.ACCUMULATION_STEPS)
 
     base_models = [
-        [MobileNet, params.MOBILENET_IMG_SIZE, MobileNet_preprocess_input],
-        [InceptionResNetV2, params.INCEPTIONRESNETV2_IMG_SIZE,
-            InceptionResNetV2_preprocess_input],
+        #[MobileNet, params.MOBILENET_IMG_SIZE, MobileNet_preprocess_input],
+        #[InceptionResNetV2, params.INCEPTIONRESNETV2_IMG_SIZE,
+        #    InceptionResNetV2_preprocess_input],
         [VGG19, params.VGG19_IMG_SIZE, VGG19_preprocess_input],
-        [InceptionV3, params.INCEPTIONV3_IMG_SIZE, InceptionV3_preprocess_input],
-        [MobileNetV2, params.MOBILENETV2_IMG_SIZE, MobileNetV2_preprocess_input],
-        [NASNetLarge, params.NASNETLARGE_IMG_SIZE, NASNetLarge_preprocess_input],
+        #[InceptionV3, params.INCEPTIONV3_IMG_SIZE, InceptionV3_preprocess_input],
+        #[MobileNetV2, params.MOBILENETV2_IMG_SIZE, MobileNetV2_preprocess_input],
+        #[NASNetLarge, params.NASNETLARGE_IMG_SIZE, NASNetLarge_preprocess_input],
     ]
 
     # for [_Model, input_shape, preprocess_input] in base_models:

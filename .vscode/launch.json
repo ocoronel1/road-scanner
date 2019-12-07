@@ -35,6 +35,19 @@
                 "LC_ALL": "C.UTF-8",
                 "LANG": "C.UTF-8"
             }
+        },
+        {
+            "name": "Python: Predict",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/networks/src/predict.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "LC_ALL": "C.UTF-8",
+                "LANG": "C.UTF-8"
+            }
         }
+
     ]
 }

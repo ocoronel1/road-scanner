@@ -33,7 +33,7 @@ def load_metadata(data_folder=params.DATA_FOLDER):
     search_path = os.path.join(base_path, '**/*.jpg')
     file_system_scan = glob(search_path, recursive=True)
 
-    files = [file for file in file_system_scan if os.path.getsize(file) > 9304]
+    files = [file for file in file_system_scan if os.path.getsize(file)]
 
     metadata = pd.DataFrame([{
         'path': file,
