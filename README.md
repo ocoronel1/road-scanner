@@ -50,6 +50,15 @@ high-confidence samples. We found that that the network learned to confidently d
 fact that the sky starts where the road ends, which is an indication of low interest features or generally featureless 
 pictures.  
 
+    Examples  
+    
+    Scenic Route Example             |  Non-Scenic Route Example
+    :-------------------------------:|:-----------------------------:
+    <img src="/example_images/mendocino_original.jpg" width="300"> | <img src="/example_images/bakersfield_original.jpg" width="300">
+    
+
+
+
 2. **Seasonality Compensation**  
 
     The second step was to expand the generalizability of the model. Most of the Google Street View images are shot 
@@ -59,10 +68,30 @@ pictures.
     lighting and texture of the image to produce a representation of what the view from the car would look like in 
     the winter.   
     
+    Examples  
+    
+    Original Photo                   |  Winter Transformation
+    :-------------------------------:|:-----------------------------:
+    <img src="/example_images/big_sur_original.jpg" width="300"> | <img src="/example_images/big_sur_winter.jpg" width="300">
+    
+
+    
+    
+    
 3. **Time of Day Compensation**  
 
      Our third step was to account for the fact that not every trip is made during daylight hours. We trained two more 
-     CycleGAN networks to transform the pictures from day to dusk and from day to night.
+     CycleGAN networks to transform the pictures from day to dusk and from day to night.  
+     
+     
+    Examples  
+
+    Original Photo                   |  Dusk Transformation          | Night Transformation
+    :-------------------------------:|:-----------------------------:|:-----------------------------:
+    <img src="/example_images/tahoe_original.jpg" width="200"> | <img src="/example_images/tahoe_dusk.jpg" width="200">| <img src="/example_images/tahoe_night.jpg" width="200">  
+
+        
+
 
 ## Our website
 We built a website to display scenic scoring and example images for a given Google Maps route
