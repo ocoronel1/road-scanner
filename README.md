@@ -51,18 +51,14 @@ images in under a second.
     :-------------------------------:|:-----------------------------:
     <img src="/example_images/tb.png" width="300"> | <img src="/example_images/attMap.png" width="300">
 
-We confirmed the validity of the model by rendering the attention layer maps for some 
+    We confirmed the validity of the model by rendering the attention layer maps for some 
 high-confidence samples. We found that that the network learned to confidently detect the non-scenic pictures by the 
 fact that the sky starts where the road ends, which is an indication of low interest features or generally featureless 
 pictures.  
 
-    Examples  
-    
-    Scenic Route Example             |  Non-Scenic Route Example
+    Scenic Route Example             | Non-Scenic Route Example
     :-------------------------------:|:-----------------------------:
     <img src="/example_images/mendocino_original.jpg" width="300"> | <img src="/example_images/bakersfield_original.jpg" width="300">
-    
-
 
 
 2. **Seasonality Compensation**  
