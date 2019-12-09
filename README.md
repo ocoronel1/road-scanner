@@ -14,7 +14,7 @@ techniques to enable travelers to optimize their travel experience by providing 
 We will use Google Street View images to train a neural network to classify a route based on scenic quality.  
 Then, in order to account for the different conditions travelers might encounter on their trips, we will use GAN networks 
 to generate predictive images of the route aesthetic under different conditions. We will then be able to take a single
-street view image and generate predictions of what that scene would like like at dusk, at night, and in the winter. 
+street view image and generate predictions of what that scene would like at dusk, at night, and in the winter. 
 Finally, our website will take a user specified google maps route and display the route’s scenic rating along with 
 example images showing what the route would look like under each potential travel condition. 
 This will allow the user to identify the most enjoyable route for their trip, so they can fill their soul with beauty
