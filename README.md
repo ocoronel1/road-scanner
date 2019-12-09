@@ -70,14 +70,16 @@ pictures.
     The second step was to expand the generalizability of the model. Most of the Google Street View images are shot 
     in spring or summer, but in reality, people travel every day throughout the year and want to know what to expect 
     at any given moment. 
-    We ended up training three CycleGANs to generate the missing pictures. CycleGANS are based on pix2pix, an image to image translation network architecture, but with the difference of not requiring paired training data. Over time, our CycleGANs learned to map the latent space between the two training domais.
+    We ended up training three CycleGANs to generate the missing pictures. CycleGANS are based on pix2pix, an image 
+    to image translation network architecture, but with the difference of not requiring paired training data. Over 
+    time, our CycleGANs learned to map the latent space between the two training domais.
     
-    Zebra/horse CycleGAN mapping
+    CycleGAN: Zebra/horse mapping example
     
-    <img src="/example_images/horse2zebra.gif" width="600"> 
-
-
+    <img src='/example_images/horse2zebra.gif' align="center" width=500>
     
+    
+        
     Therefore, in order to give accurate scenic ratings of a route traveled in say, December, 
     we trained a cycle GAN network to transform the images from summer to winter. The model is able to adjust the 
     lighting and texture of the image to produce a representation of what the view from the car would look like in 
