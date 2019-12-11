@@ -107,4 +107,4 @@ pictures.
 
 
 ## Our website
-We built a website to display scenic scoring and example images for a given Google Maps route. The demo is [here](http://people.ischool.berkeley.edu/~sm.ferro54/w209/)
+We built a website to display scenic scoring and example images for a given Google Maps route. The demo is [here](http://people.ischool.berkeley.edu/~sm.ferro54/roadscanner/)
