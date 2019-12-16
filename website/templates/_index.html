@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Roadscanner</title>
+    <!-- css -->
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css">
+	<!-- javascript -->
+	<script type='text/javascript' src='./static/js/config.js'></script>
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="shortcut icon" href="./static/images/roadscanner.ico">
+	<script onload="initMap()" async defer id = js_api></script>
+	<script>
+		var k = config.big_key;
+		url0 = 'https://maps.googleapis.com/maps/api/js?key=' + k + '&libraries=geometry'
+		document.getElementById("js_api").src= url0;
+	</script>
+	<script type='text/javascript' src='./static/js/jquery-3.4.1.min.js'></script>
+</head>
+
+<body>
+
+    <div class="grid">
+
+        <div id="logo">
+			<img src="./static/images/roadscanner.png" width="100" height="100">
+		</div>
+
+        <div id="address_box">
+            <!-- <input id="start-input" class="address_input form-control" placeholder="Starting from..." autocomplete=on> -->
+            <!-- <input id="end-input" class="address_input form-control" placeholder="Going to..." autocomplete=on> -->
+			<!-- <div id="buttons_box"> -->
+                <!-- <button class="btn-address btn btn-primary" type="button" id="btn_go" onclick="get_route()">Go!</button> -->
+            <!-- </div> -->
+			<div class="dropdown"style="float:right;">
+				<button class="dropbtn">Demo routes</button>
+				<div class="dropdown_content">
+					<a onclick="get_route('Kings')">Lake Tahoe</a>
+					<a onclick="get_route('Mendocino')">Northern Pacific Coast</a>
+					<a onclick="get_route('Death')">Death Valley</a>
+					<a onclick="get_route('origin=1415')">Grizzly Peak</a>
+					<a onclick="get_route('Sand')">Big Sur</a>
+				</div>
+			</div>
+        </div>
+		
+        <div id="map">
+        </div>
+		
+        <script type="text/javascript" src="./static/js/map.js"></script>
+		
+    </div>
+
+</body>
+
+</html>
