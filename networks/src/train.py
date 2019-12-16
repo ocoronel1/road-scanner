@@ -62,9 +62,6 @@ def create_data_generator(dataset,
       The created ImageDataGenerator.
     '''
 
-    dataset['newLabel'] = dataset.apply(
-        lambda x: x['Finding Labels'].split('|'), axis=1)
-
     image_generator = ImageDataGenerator(samplewise_center=True,
                                          samplewise_std_normalization=False,
                                          horizontal_flip=True,
@@ -81,8 +78,9 @@ def create_data_generator(dataset,
     dataset_generator = image_generator.flow_from_dataframe(dataframe=dataset,
                                                             directory=None,
                                                             x_col='path',
-                                                            y_col='newLabel',
+                                                            y_col='label',
                                                             class_mode='categorical',
+                                                            #class_mode='binary',
                                                             classes=labels,
                                                             target_size=target_size,
                                                             color_mode=color_mode,
@@ -333,19 +331,19 @@ def train_multiple_networks():
             lr=params.LEARNING_RATE, accum_iters=params.ACCUMULATION_STEPS)
 
     base_models = [
-        [MobileNet, params.MOBILENET_IMG_SIZE, MobileNet_preprocess_input],
-        [InceptionResNetV2, params.INCEPTIONRESNETV2_IMG_SIZE,
-            InceptionResNetV2_preprocess_input],
+        #[MobileNet, params.MOBILENET_IMG_SIZE, MobileNet_preprocess_input],
+        #[InceptionResNetV2, params.INCEPTIONRESNETV2_IMG_SIZE,
+        #    InceptionResNetV2_preprocess_input],
         [VGG19, params.VGG19_IMG_SIZE, VGG19_preprocess_input],
-        [InceptionV3, params.INCEPTIONV3_IMG_SIZE, InceptionV3_preprocess_input],
-        [MobileNetV2, params.MOBILENETV2_IMG_SIZE, MobileNetV2_preprocess_input],
-        [NASNetLarge, params.NASNETLARGE_IMG_SIZE, NASNetLarge_preprocess_input],
+        #[InceptionV3, params.INCEPTIONV3_IMG_SIZE, InceptionV3_preprocess_input],
+        #[MobileNetV2, params.MOBILENETV2_IMG_SIZE, MobileNetV2_preprocess_input],
+        #[NASNetLarge, params.NASNETLARGE_IMG_SIZE, NASNetLarge_preprocess_input],
     ]
 
-    for [_Model, input_shape, preprocess_input] in base_models:
-        train_model(_Model, input_shape, preprocess_input,
-                    train, valid, labels,
-                    create_simple_model, optimizer, 'simple')
+    # for [_Model, input_shape, preprocess_input] in base_models:
+    #     train_model(_Model, input_shape, preprocess_input,
+    #                 train, valid, labels,
+    #                 create_simple_model, optimizer, 'simple')
 
     for [_Model, input_shape, preprocess_input] in base_models:
         train_model(_Model, input_shape, preprocess_input,
